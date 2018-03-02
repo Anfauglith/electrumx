@@ -1366,3 +1366,41 @@ class BitcoinAtom(Coin):
         '''Return the block header bytes'''
         deserializer = cls.DESERIALIZER(block)
         return deserializer.read_header(height, cls.BASIC_HEADER_SIZE)
+
+class InternetOfPeople(Coin):
+    NAME = "InternetOfPeople"
+    SHORTNAME = "IOP"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("2780915F")
+    XPRV_VERBYTES = bytes.fromhex("AE3416F6")
+    P2PKH_VERBYTE = bytes.fromhex("75")
+    P2SH_VERBYTES = [bytes.fromhex("AE")]
+    WIF_BYTE = bytes.fromhex("31")
+    GENESIS_HASH = ('00000000bf5f2ee556cb9be8be64e077' 
+                    '6af14933438dbb1af72c41bfb6c82db3') 
+    TX_COUNT = 96023 
+    TX_COUNT_HEIGHT = 84795 
+    TX_PER_BLOCK = 2 # what is this 
+    RPC_PORT = 8337 
+    PEERS = [
+    ] 
+
+class InternetOfPeopleTestnet(InternetOfPeople): 
+    SHORTNAME = "IOPT" 
+    NET = "testnet" 
+    XPUB_VERBYTES = bytes.fromhex("BB8F4852") 
+    XPRV_VERBYTES = bytes.fromhex("2B7FA42A") 
+    P2PKH_VERBYTE = bytes.fromhex("82") 
+    P2SH_VERBYTE = bytes.fromhex("31") 
+    WIF_BYTE = bytes.fromhex("4C") 
+    GENESIS_HASH = ('000000006f2bb863230cda4f4fbee520' 
+                    '314077e599a90b9c6072ea2018d7f3a3') 
+   
+    TX_COUNT = 20011
+    TX_COUNT_HEIGHT = 18870 
+    TX_PER_BLOCK = 2
+    RPC_PORT = 14337 
+    REORG_LIMIT = 8000 
+    PEER_DEFAULT_PORTS = {'t': '51001', 's': '51002'} 
+    PEERS = [ 
+    ] 
